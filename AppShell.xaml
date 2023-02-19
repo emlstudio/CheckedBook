@@ -11,7 +11,7 @@
             <ShellContent ContentTemplate="{DataTemplate view:MainPage}" />
        </Tab>
        <Tab Title="Accounts">
-           <ShellContent ContentTemplate="{DataTemplate view:MainPage}" />
+           <ShellContent ContentTemplate="{DataTemplate view:AccountsPage}" />
        </Tab>
        <Tab Title="Transactions">
            <ShellContent ContentTemplate="{DataTemplate view:MainPage}" />

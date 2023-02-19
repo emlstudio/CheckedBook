@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using CheckedBook.View;
 
 namespace CheckedBook;
 
@@ -18,6 +19,10 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+		builder.Services.AddSingleton<AccountsViewModel>();
+
+		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddSingleton<AccountsPage>();
 
 		return builder.Build();
 	}
