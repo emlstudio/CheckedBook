@@ -11,11 +11,11 @@ namespace CheckedBook.ViewModel
 		public AccountsViewModel()
 		{
 			Title = "Accounts";
-			GetAccountsAsync();
+			GetAccounts();
 		}
 
 		//[ICommand]
-		private void GetAccountsAsync()
+		private void GetAccounts()
 		{
 			if (IsBusy)
 				return;
