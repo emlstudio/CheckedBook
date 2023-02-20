@@ -1,9 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:CheckedBook.Model"
+             xmlns:viewmodel="clr-namespace:CheckedBook.ViewModel"
+             x:DataType="viewmodel:AccountsViewModel"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              x:Class="CheckedBook.View.AccountsPage"
-             Title="Accounts">
-    <VerticalStackLayout>
+             Title="{Binding Title}"
+             ios:Page.UseSafeArea="True">
 
-    </VerticalStackLayout>
+    <Grid ColumnDefinitions="*">
+        <CollectionView BackgroundColor="White"
+                        ItemsSource="{Binding Accounts}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Account">
+                    <Grid Padding="7">
+                        <Frame HeightRequest="75"
+                               Padding="0">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AccountsViewModel}}, Path=GoToTransactionsCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <Grid Padding="0"
+                                  ColumnDefinitions="*, *">
+                                <HorizontalStackLayout Grid.Column="50"
+                                                       Padding="10"
+                                                       VerticalOptions="Center">
+                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding CurrentAmount}"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

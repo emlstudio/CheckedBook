@@ -71,5 +71,8 @@
 	  <MauiXaml Update="View\AccountsPage.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="View\TransactionsPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

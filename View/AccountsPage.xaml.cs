@@ -2,8 +2,9 @@
 
 public partial class AccountsPage : ContentPage
 {
-	public AccountsPage()
+	public AccountsPage(AccountsViewModel viewModel)
 	{
 		InitializeComponent();
+		BindingContext = viewModel;
 	}
 }

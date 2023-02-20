@@ -1,5 +1,4 @@
-﻿
-namespace CheckedBook.View;
+﻿namespace CheckedBook.View;
 
 public partial class MainPage : ContentPage
 {
